@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Refrigerator Display</title>
+  <style>
+    #monitor {
+      width: 500px;
+      height: 300px;
+      border: 5px solid black;
+      position: relative;
+      margin: 50px auto;
+      padding: 10px;
+    }
+
+    #clock {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 18px;
+    }
+
+    #buttons {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+    }
+
+    .display {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    #TV, #Browser {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: -2; 
+    }
+
+    .image {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="monitor">
+  <div id="clock"></div>
+
+  <div id="buttons">
+    <button onclick="toggleDisplay()">On/Off</button>
+  </div>
+
+  <div id="temperature" class="display">
+    <h2>Temperature</h2>
+    <div id="temperatureDisplay">Temperature: 0°F</div>
+  </div>
+
+  <div id="insideFridge" class="display">
+    <img class="image" src="https://aptokash.github.io/SD330-2/06-fridge.jpg">
+  </div>
+
+  <div id="TV" class="display">
+    <img class="image" src="https://aptokash.github.io/SD330-2/06-tv.jpg">
+  </div>
+
+  <div id="Browser" class="display">
+    <img class="image" src="https://aptokash.github.io/SD330-2/06-web.jpg">
+  </div>
+</div>
+
+<script>
+  let isDisplayOn = true;
+
+  function toggleDisplay() {
+    isDisplayOn = !isDisplayOn;
+
+    const displays = document.querySelectorAll('.display');
+    displays.forEach(display => {
+      display.style.display = isDisplayOn ? 'block' : 'none';
+    });
+
+    document.getElementById('clock').style.display = isDisplayOn ? 'block' : 'none';
+  }
+
+  function updateClock() {
+        today = new Date();
+        h = today.getHours();
+        m = today.getMinutes();
+        s = today.getSeconds();
+        m = checkClock(m);
+        s = checkClock(s);
+        document.getElementById('clock').innerHTML = "The Current Time is " + h + ":" + m + ":" + s;
+        setTimeout(updateClock, 1000);
+    }
+
+    function checkClock(i) {
+        if (i < 10) {i = "0" + i};
+        return i;
+    }
+
+    updateClock();
+</script>
+
+</body>
+</html>
