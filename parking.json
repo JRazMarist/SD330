@@ -1,0 +1,172 @@
+{
+    "parking_lots": [
+        {
+            "name": "Foy",
+            "map_filename": "mapFoy.png",
+            "total_spaces": 50,
+            "comments": "Surrounded by the Foy townhouses. Between Fontain and Hancock",
+            "lotAvailability": "Filling Quickly",
+            "spaces": [
+                {
+                    "name": "Spot1",
+                    "type": "Student",
+                    "status": "Filled",
+                    "filledDateAndTime": "4/24/2024 8:12am",
+                    "reservedDateAndTime": null
+                },
+                {
+                    "name": "Spot2",
+                    "type": "Student",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                },
+                {
+                    "name": "Spot3",
+                    "type": "Student",
+                    "status": "Reserved",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": "5/1/2024 2:00pm"
+                },
+                {
+                    "name": "Spot4",
+                    "type": "Faculty/Staff",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                },
+                {
+                    "name": "Spot5",
+                    "type": "Faculty/Staff",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                },
+                {
+                    "name": "Spot6",
+                    "type": "Faculty/Staff",
+                    "status": "Filled",
+                    "filledDateAndTime": "4/29/2024 1:02pm",
+                    "reservedDateAndTime": null
+                },
+                {
+                    "name": "Spot7",
+                    "type": "Faculty/Staff",
+                    "status": "Reserved",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": "5/2/2024 8:00am"
+                },
+                {
+                    "name": "Spot8",
+                    "type": "Handicap",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                },
+                {
+                    "name": "Spot9",
+                    "type": "Handicap",
+                    "status": "Filled",
+                    "filledDateAndTime": "4/28/2024 9:23am",
+                    "reservedDateAndTime": null
+                },
+                {
+                    "name": "Spot10",
+                    "type": "Handicap",
+                    "status": "Reserved",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": "5/2/2024 3:00pm"
+                },
+                {
+                    "name": "Spot11",
+                    "type": "Drop-off",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                },
+                {
+                    "name": "Spot12",
+                    "type": "Drop-off",
+                    "status": "Filled",
+                    "filledDateAndTime": "4/27/2024 9:34am",
+                    "reservedDateAndTime": null
+                }
+            ]
+        },
+        {
+            "name": "Midrise",
+            "map_filename": "mapMidrise.png",
+            "total_spaces": 70,
+            "comments": "Vary close to the main campus and a very popular lot for freshman drop off",
+            "lotAvailability": "Half Full",
+            "spaces": [
+                {
+                    "type": "Student",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                }
+            ]
+        },
+        {
+            "name": "Donnelly",
+            "map_filename": "mapDonnelly.png",
+            "total_spaces": 50,
+            "comments": "Very popular lot for sports games and students that have classes in Donnelly",
+            "lotAvailability": "Filling Quickly",
+            "spaces": [
+                {
+                    "type": "Student",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                }
+            ]
+        },
+        {
+            "name": "Upper Fulton",
+            "map_filename": "mapUpperFulton.png",
+            "total_spaces": 100,
+            "comments": "Very large lot that is very far from the main campus",
+            "lotAvailability": "Almost Vacant",
+            "spaces": [
+                {
+                    "type": "Student",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                }
+            ]
+        },
+        {
+            "name": "Steel Plant",
+            "map_filename": "mapSteelPlant.jpg",
+            "total_spaces": 30,
+            "comments": "Main parking lot for fasion students. Directly across the road from the main campus",
+            "lotAvailability": "Filling Quickly",
+            "spaces": [
+                {
+                    "type": "Student",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                }
+            ]
+        },
+        {
+            "name": "Fontaine",
+            "map_filename": "mapFontaine.png",
+            "total_spaces": 60,
+            "comments": "Right next to the Fontaine building and very close to a campus entrance",
+            "lotAvailability": "Filling Quickly",
+            "spaces": [
+                {
+                    "type": "Student",
+                    "status": "Available",
+                    "filledDateAndTime": null,
+                    "reservedDateAndTime": null
+                }
+            ]
+        }
+    ]
+}
