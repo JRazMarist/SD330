@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foy Lot</title>
+    <link rel="stylesheet" href="marist.css">
+
+</head>
+<body>
+    <header>
+        <h1>Home</h1>
+    </header>
+    <div><input type="button" onclick="window.location.href = 'parking.html'" id="homeButton" value="Return"></div>
+
+    <div id="foyLotStatus"></div>
+    <div>
+        <img src="mapFoy.jpg" alt="Foy Lot Image">
+    </div>
+    <div id="foySpaces"></div>
+
+    
+
+    <script>
+    
+
+    fetch('https://jrazmarist.github.io/SD330/parking.json')
+    .then(response => response.json())
+    .then(data => {
+        const foyParkingLot = data.parking_lots.find(parking_lot => parking_lot.name === "Foy");
+        if (foyParkingLot) {
+            const foy = document.getElementById('foyLotStatus');
+            foy.innerHTML = `
+                <h1>${foyParkingLot.name} Parking Lot</h1>
+                <p>Total Spaces: ${foyParkingLot.total_spaces}</p>
+                <p>Lot Availability: ${foyParkingLot.lotAvailability}</p>
+                <p>Comments: ${foyParkingLot.comments}</p>
+            `;
+            const foySpaces = document.getElementById('foySpaces');
+            let spacesHTML = '<h2>Spaces Information:</h2>';
+            foyParkingLot.spaces.forEach(spaces => {
+                spacesHTML += `
+                    <p>Spot Number: ${spaces.name}</p>
+                    <p>Type: ${spaces.type}</p>
+                    <p>Status: ${spaces.status}</p>
+                    <p>Filled Date and Time: ${spaces.filledDateAndTime}</p>
+                    <p>Reserved Date and Time: ${spaces.reservedDateAndTime}</p>
+                    <hr>
+                `;
+            });
+
+            foySpaces.innerHTML = spacesHTML;
+        }
+    })
+    </script>
+
+
+</body>
+</html>

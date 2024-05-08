@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontaine Lot</title>
+    <link rel="stylesheet" href="marist.css">
+
+</head>
+<body>
+    <header>
+        <h1>Home</h1>
+    </header>
+    <div><input type="button" onclick="window.location.href = 'parking.html'" id="homeButton" value="Return"></div>
+
+    <div id="fontaineLotStatus"></div>
+    <div>
+        <img src="mapFontaine.jpg" alt="Fontaine Lot Image">
+    </div>
+    <div id="fontaineSpaces"></div>
+
+    
+
+    <script>
+    
+
+    fetch('https://jrazmarist.github.io/SD330/parking.json')
+    .then(response => response.json())
+    .then(data => {
+        const fontaineParkingLot = data.parking_lots.find(parking_lot => parking_lot.name === "Fontaine");
+        if (fontaineParkingLot) {
+            const fontaine = document.getElementById('fontaineLotStatus');
+            fontaine.innerHTML = `
+                <h1>${fontaineParkingLot.name} Parking Lot</h1>
+                <p>Total Spaces: ${fontaineParkingLot.total_spaces}</p>
+                <p>Lot Availability: ${fontaineParkingLot.lotAvailability}</p>
+                <p>Comments: ${fontaineParkingLot.comments}</p>
+            `;
+            const fontaineSpaces = document.getElementById('fontaineSpaces');
+            let spacesHTML = '<h2>Spaces Information:</h2>';
+            fontaineParkingLot.spaces.forEach(spaces => {
+                spacesHTML += `
+                    <p>Spot Number: ${spaces.name}</p>
+                    <p>Type: ${spaces.type}</p>
+                    <p>Status: ${spaces.status}</p>
+                    <p>Filled Date and Time: ${spaces.filledDateAndTime}</p>
+                    <p>Reserved Date and Time: ${spaces.reservedDateAndTime}</p>
+                    <hr>
+                `;
+            });
+
+            fontaineSpaces.innerHTML = spacesHTML;
+        }
+    })
+    </script>
+
+
+</body>
+</html>

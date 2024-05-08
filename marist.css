@@ -1,0 +1,41 @@
+header {
+    display: block;
+    background-color: whitesmoke;
+    color: red;
+    text-align: center;
+    font-size: 32px;
+}
+
+nav {
+    border-bottom: 1px solid black;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: red;
+    color: white;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+footer {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+a {
+    color: white;
+    font-size: 20pt;
+}
+
+a:hover {
+    text-decoration: underline;
+}

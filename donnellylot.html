@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donnelly Lot</title>
+    <link rel="stylesheet" href="marist.css">
+
+</head>
+<body>
+    <header>
+        <h1>Home</h1>
+    </header>
+    <div><input type="button" onclick="window.location.href = 'parking.html'" id="homeButton" value="Return"></div>
+
+    <div id="donnellyLotStatus"></div>
+    <div>
+        <img src="mapDonnelly.jpg" alt="Donnelly Lot Image">
+    </div>
+    <div id="donnellySpaces"></div>
+
+    
+
+    <script>
+    
+
+    fetch('https://jrazmarist.github.io/SD330/parking.json')
+    .then(response => response.json())
+    .then(data => {
+        const donnellyParkingLot = data.parking_lots.find(parking_lot => parking_lot.name === "Donnelly");
+        if (donnellyParkingLot) {
+            const donnelly = document.getElementById('donnellyLotStatus');
+            donnelly.innerHTML = `
+                <h1>${donnellyParkingLot.name} Parking Lot</h1>
+                <p>Total Spaces: ${donnellyParkingLot.total_spaces}</p>
+                <p>Lot Availability: ${donnellyParkingLot.lotAvailability}</p>
+                <p>Comments: ${donnellyParkingLot.comments}</p>
+            `;
+            const donnellySpaces = document.getElementById('donnellySpaces');
+            let spacesHTML = '<h2>Spaces Information:</h2>';
+            donnellyParkingLot.spaces.forEach(spaces => {
+                spacesHTML += `
+                    <p>Spot Number: ${spaces.name}</p>
+                    <p>Type: ${spaces.type}</p>
+                    <p>Status: ${spaces.status}</p>
+                    <p>Filled Date and Time: ${spaces.filledDateAndTime}</p>
+                    <p>Reserved Date and Time: ${spaces.reservedDateAndTime}</p>
+                    <hr>
+                `;
+            });
+
+            donnellySpaces.innerHTML = spacesHTML;
+        }
+    })
+    </script>
+
+
+</body>
+</html>
